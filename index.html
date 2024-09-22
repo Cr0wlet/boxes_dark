@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test boxes</title>
+
+<style type="text/css">
+body, html, div, p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    padding: 3%;
+    background-color: rgb(70,70,70);
+}
+
+p {
+    margin: 0 0px 15px 0px;
+}
+
+p:last-child {
+    margin-bottom: 0px;
+}
+
+
+
+.spacer {
+    height: 8em;
+}
+
+.inblock {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#bgImg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -9;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+    background-position: center center;
+}
+
+#vignette {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -8;
+    box-shadow: inset 0 0px 120px black;
+}
+
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+footer {
+    font-family: Monocraft;
+    text-align: center;
+    color: white;
+}
+
+footer:before {
+    content: '\1F65E';
+    font-family: sans-serif;
+    font-size: 3em;
+}
+
+footer:after {
+    content: '\1F65D';
+    font-family: sans-serif;
+    font-size: 3em;
+}
+
+.outer {
+    margin-bottom: 25px;
+    border: 3px solid black;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    background: rgb(70,50,50);
+    box-shadow: 0 10px 0px rgba(0,0,0,0.25);
+}
+
+a.outer {
+    display: block;
+    background: rgb(50,50,50);
+    text-decoration: none;
+}
+
+a.outer:hover {
+    background: rgb(30,80,150);
+}
+
+.inner {
+    padding: 8px;
+    background: rgba(255,255,255,0.2);
+    border: 3px solid rgba(255,255,255,0.2);
+    font-family: Monocraft;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px rgba(0,0,0,0.25);
+}
+
+.content .inner {
+    text-align: left;
+}
+
+.title {
+    font-size: 4em;
+    font-weight: normal;
+}
+
+.columns {
+    display: flex;
+    flex-direction: columns;
+}
+
+.nav {
+    flex: 1;
+    padding-right: 14px;
+    border-right: 3px solid black;
+}
+
+.main-body {
+    flex: 3;
+    border-left: 3px solid rgb(100,100,100);
+    padding-left: 14px;
+}
+
+#title {
+    position: absolute;
+    left: 3%;
+    right: 3%;
+}
+
+.banner {
+    position:absolute;
+    right: 50px;
+    top: 0px;
+    width: 70px;
+    height: 117px;
+}
+
+.banner .sq {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 87px;
+    background-color: rgb(190,0,0);
+    color: gold;
+    font-size: 4em;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner .v1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 30px solid rgb(190,0,0);
+}
+
+.banner .v2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 30px solid rgb(190,0,0);
+}
+
+.banner.shadow {
+    position:absolute;
+    right: 45px;
+    top: -5px;
+    width: 80px;
+    height: 130px;
+}
+
+.banner.shadow .sq {
+    width: 80px;
+    height: 95px;
+    background-color: gold;
+}
+
+.banner.shadow .v1 {
+    border-left: 23px solid transparent;
+    border-right: 23px solid transparent;
+    border-top: 35px solid gold;
+}
+
+.banner.shadow .v2 {
+    border-left: 23px solid transparent;
+    border-right: 23px solid transparent;
+    border-top: 35px solid gold
+}
+
+
+.inv-char-preview {
+    margin: auto;
+    max-width: 200px;
+    height: 300px;
+    text-align: center;
+    background: black url('crowlet.png');
+    background-position: center top;
+    border: 3px solid black;
+    border-bottom: 12px solid black;
+}
+
+.bgToggleOff {
+    visibility: visible;
+}
+
+.bgToggleOn {
+    visibility: hidden;
+}
+</style>
+</head>
+<body>
+
+<div id="bgImg" style="background-image: url('bg_cave.jpg'); opacity: 0.25;"></div>
+<div id="vignette"></div>
+
+<div id="title">
+    <a id="title-text" class="outer noSelect toggleOff" style="cursor: pointer;">
+        <div class="inner">
+            <h1 class="title">Crowlet's Nest</h1>
+        </div>
+    </a>
+    <div class="banner shadow">
+        <div class="sq"></div>
+        <div class="v1"></div>
+        <div class="v2"></div>
+    </div>
+    <div class="banner">
+        <div id="banner-top"  class="sq"><a id="banner-symbol" class="noSelect" style="cursor: pointer;">&#128618;</a></div>
+        <div id="banner-left" class="v1"></div>
+        <div id="banner-right" class="v2"></div>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+
+<div class="columns hide toggleable">
+    <div class="nav">
+        <a class="outer noSelect" href="#">
+            <div class="inner">
+                Home Button Text
+            </div>
+        </a>
+        <a class="outer noSelect" href="#">
+            <div class="inner">
+                Link 2
+            </div>
+        </a>
+        <a class="outer noSelect" href="#">
+            <div class="inner">
+                Link 3
+            </div>
+        </a>
+        <div class="inv-char-preview">&nbsp;</div>
+    </div>
+
+    <div class="main-body">
+        <div class="outer content">
+            <div class="inner">
+                <p>Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.</p>
+
+                <p>The code below ensures that all elements are sized in this more intuitive way. Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).</p>
+
+                <p>Applying this to all elements is safe and wise:</p>
+            </div>
+        </div>
+        <div class="outer content">
+            <div class="inner">
+                <p>Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.</p>
+
+                <p>The code below ensures that all elements are sized in this more intuitive way. Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).</p>
+
+                <p>Applying this to all elements is safe and wise:</p>
+            </div>
+        </div>
+        <div class="outer content">
+            <div class="inner">
+                <p>Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.</p>
+
+                <p>The code below ensures that all elements are sized in this more intuitive way. Many browsers already use box-sizing: border-box; for many form elements (but not all - which is why inputs and text areas look different at width: 100%;).</p>
+
+                <p>Applying this to all elements is safe and wise:</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="toggleable">
+    <div class="inblock">Last updated Aug 2004<br/>Crowlet</div>
+</footer>
+
+
+
+<script>
+// changing/viewing background
+const button = document.getElementById('title-text');
+const elements = document.getElementsByClassName('toggleable');
+const bgImg = document.getElementById('bgImg');
+
+const bgs = ['bg_cave.jpg', 'bg_house.jpg', 'bg_deck.jpg', 'bg_sky.jpg'];
+var i = 0;
+
+
+function changePic (args) {
+    i++;
+    i = (i >= bgs.length) ? 0 : i;
+    console.log(i);
+    bgImg.style.backgroundImage = "url('"+bgs[i]+"')";
+}
+
+function visOff (el) {
+    console.log(el);
+    el.style.visibility = 'hidden';
+    bgImg.style.opacity = 1.0;
+}
+
+function visOn (el) {
+    el.style.visibility = 'visible';
+    bgImg.style.opacity = 0.25;
+}
+
+button.onclick = function() {
+    if (button.classList.contains('toggleOff')) {
+        console.log("toggle is off. turning on.");
+        for (var x of elements) { visOff(x); }
+        changePic();
+    } else {
+        console.log("toggle is on. turning off.");
+        for(var x of elements) { visOn(x); }
+    }
+    button.classList.toggle('toggleOff');
+}
+
+// changing banner/content colours
+const buttonBanner = document.getElementById('banner-symbol');
+const bannerA = document.getElementById('banner-top');
+const bannerB = document.getElementById('banner-left');
+const bannerC = document.getElementById('banner-right');
+const content = document.getElementsByClassName('content');
+
+const colorsB = ['rgb(70,50,50)', 'rgb(50,70,50)', 'rgb(50,50,70)'];
+const colorsA = ['rgb(190,0,0)', 'rgb(0,190,0)', 'rgb(0,0,190)'];
+var j = 0;
+
+buttonBanner.onclick = function() {
+    j++;
+    j = (j == colorsA.length) ? 0 : j;
+    console.log(j);
+    bannerA.style.backgroundColor = colorsA[j];
+    bannerB.style.borderTopColor = colorsA[j];
+    bannerC.style.borderTopColor = colorsA[j];
+    for (var b of content) {
+        b.style.backgroundColor = colorsB[j];
+    }
+}
+
+</script>
+
+</body>
+</html>
